@@ -7,7 +7,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 
 class AppBundle extends Bundle
 {
-    private $container;
+    protected $container;
 
     public function setContainer(ContainerInterface $container = null)
     {
