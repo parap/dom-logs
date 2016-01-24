@@ -22,9 +22,9 @@ class Nation
     /**
      * @var integer
      *
-     * @ORM\Column(name="id_age", type="integer", nullable=false)
+     * @ORM\Column(name="age", type="integer", nullable=false)
      */
-    private $idAge;
+    private $age;
 
     /**
      * @var integer
@@ -62,27 +62,27 @@ class Nation
     }
 
     /**
-     * Set idAge
+     * Set age
      *
-     * @param integer $idAge
+     * @param integer $age
      *
      * @return Nation
      */
-    public function setIdAge($idAge)
+    public function setAge($age)
     {
-        $this->idAge = $idAge;
+        $this->age = $age;
 
         return $this;
     }
 
     /**
-     * Get idAge
+     * Get age
      *
      * @return integer
      */
-    public function getIdAge()
+    public function getAge()
     {
-        return $this->idAge;
+        return $this->age;
     }
 
     /**
