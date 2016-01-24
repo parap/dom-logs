@@ -15,16 +15,42 @@ class Version20160124155144 extends AbstractMigration
      */
     public function up(Schema $schema)
     {
-        $sql = "
-CREATE TABLE IF NOT EXISTS `nation` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(32) COLLATE utf8_unicode_ci NOT NULL,
-  `id_age` tinyint(1) NOT NULL COMMENT '(DC2Type:age)',
-  PRIMARY KEY (`id`),
-  KEY `id_age` (`id_age`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;";
+        $nationsEa = [
+            'Arcoscephale',
+            'Ermor',
+            'Ulm',
+            'Marverni',
+            'Sauromatia',
+            'T\'ien C\'hi',
+            'Machaka',
+            'Mictlan',
+            'Abysia',
+            'Caelum',
+            'C\'tis',
+            'Pangea',
+            'Agartha',
+            'Tir na n\'Og',
+            'Fomoria',
+            'Vanheim',
+            'Helheim',
+            'Niefelheim',
+            'Kailasa',
+            'Lanka',
+            'Yomi',
+            'Hinnom',
+            'Ur',
+            'Berytos',
+            'Xibalba',
+            'Atlantis',
+            'R\'lyeh',
+            'Pelagia',
+            'Oceania',
+            'Therodos'
+        ];
 
-        $this->addSql($sql);
+        $sql = "INSERT INTO `doms`.`nation` (`id`, `name`, `id_age`) VALUES ";
+        $values = array_map(function($nat){return "(NULL, \"$nat\", \"1\")";}, $nationsEa);
+        $this->addSql($sql . implode(', ',$values));
     }
 
     /**
@@ -32,6 +58,6 @@ CREATE TABLE IF NOT EXISTS `nation` (
      */
     public function down(Schema $schema)
     {
-        $this->addSql('DROP TABLE nation');
+        $this->addSql('TRUNCATE TABLE `nation`');
     }
 }
