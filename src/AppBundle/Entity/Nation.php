@@ -94,7 +94,9 @@ class Nation
      */
     public function getAge()
     {
-        return $this->age;
+        $map = [1 => 'Early', 2 => 'Middle', 3 => 'Late'];
+
+        return $map[$this->age];
     }
 
     /**
