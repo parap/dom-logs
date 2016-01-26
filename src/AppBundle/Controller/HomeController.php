@@ -11,14 +11,17 @@ class HomeController extends Controller
 {
     /**
      * @Route("/", name="homepage")
-     * @Template("AppBundle:home:base.html.twig")
+     * @Template("AppBundle:home:index.html.twig")
      */
     public function indexAction(Request $request)
     {
-        $dr = $this->container->get('doctrine');
-        $repo = $dr->getRepository('AppBundle:Nation');
+        $dr      = $this->container->get('doctrine');
+        $repo    = $dr->getRepository('AppBundle:Nation');
         $nations = $repo->findAll();
 
-        return ['base_dir' => realpath($this->container->getParameter('kernel.root_dir').'/..')];
+        return [
+            'base_dir' => realpath($this->container->getParameter('kernel.root_dir') . '/..'),
+            'nations'  => $nations
+        ];
     }
 }
