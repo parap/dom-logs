@@ -15,6 +15,10 @@ class HomeController extends Controller
      */
     public function indexAction(Request $request)
     {
+        $dr = $this->container->get('doctrine');
+        $repo = $dr->getRepository('AppBundle:Nation');
+        $nations = $repo->findAll();
+
         return ['base_dir' => realpath($this->container->getParameter('kernel.root_dir').'/..')];
     }
 }
