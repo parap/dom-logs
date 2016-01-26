@@ -11,7 +11,7 @@ class HomeController extends Controller
 {
     /**
      * @Route("/", name="homepage")
-     * @Template("AppBundle:default:base.html.twig")
+     * @Template("AppBundle:home:base.html.twig")
      */
     public function indexAction(Request $request)
     {
