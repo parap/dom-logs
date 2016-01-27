@@ -1,10 +1,52 @@
+<style>
+    thead {
+        color: green;
+    }
+
+    tbody {
+        color: blue;
+    }
+
+    tfoot {
+        color: red;
+    }
+
+    table, th, td {
+        border: 1px solid black;
+        text-align: center;
+        min-width: 150px;
+    }
+
+    .myTableStyle {
+        /*margin-left: 300px;*/
+        width: 100%;
+    }
+</style>
+
 <div style="text-align: center">
     <div># List of my games #</div>
-    {% for game in app.user.games %}
-    Era: {{ game.nation.age }}<br/>
-    Nation: {{ game.nation.name }}<br/>
-    Map: {{ game.map }}<br/>
-    <a href="">Add turn</a>
-    <a href="">Delete</a>
-    {% endfor %}
+    <div style="text-align: center">
+        <table class="myTableStyle">
+            <thead>
+            <tr>
+                <td>Era</td>
+                <td>Nation</td>
+                <td>Map</td>
+                <td>Actions</td>
+            </tr>
+            </thead>
+            <tbody>
+            {% for game in app.user.games %}
+            <tr>
+                <td>{{ game.nation.age }}</td>
+                <td>{{ game.nation.name }}</td>
+                <td>{{ game.map }}</td>
+                <td><a href="">Add turn</a>&nbsp;<a href="">Delete</a></td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
 </div>
+
+<div><a href=""><button>Add new game</button></a></div>
