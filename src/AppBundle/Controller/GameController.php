@@ -85,7 +85,7 @@ class GameController extends Controller
     public function editAction(Request $request, Game $game)
     {
         $deleteForm = $this->createDeleteForm($game);
-        $editForm = $this->createForm(new GameType(), $game);
+        $editForm = $this->createForm(get_class(new GameType()), $game);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
