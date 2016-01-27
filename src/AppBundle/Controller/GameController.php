@@ -109,6 +109,7 @@ class GameController extends Controller
      *
      * @Route("/{id}/delete", name="game_delete")
      * @Method("GET")
+     * @TODO: switch to DELETE method
      */
     public function deleteAction(Request $request, Game $game)
     {
