@@ -9,6 +9,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use AppBundle\Entity\Game;
 use AppBundle\Form\GameType;
 use Symfony\Component\DependencyInjection\ContainerInterface;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 /**
  * Game controller.
@@ -22,6 +23,7 @@ class GameController extends Controller
      *
      * @Route("/new", name="game_new")
      * @Method({"GET", "POST"})
+     * @Template("AppBundle:game:new.html.twig")
      */
     public function newAction(Request $request)
     {
@@ -38,10 +40,10 @@ class GameController extends Controller
             return $this->redirectToRoute('game_show', array('id' => $game->getId()));
         }
 
-        return $this->render('game/new.html.twig', array(
+        return array(
             'game' => $game,
             'form' => $form->createView(),
-        ));
+        );
     }
 
     /**
@@ -49,15 +51,16 @@ class GameController extends Controller
      *
      * @Route("/{id}", name="game_show")
      * @Method("GET")
+     * @Template("AppBundle:game:show.html.twig")
      */
     public function showAction(Game $game)
     {
         $deleteForm = $this->createDeleteForm($game);
 
-        return $this->render('game/show.html.twig', array(
+        return array(
             'game' => $game,
             'delete_form' => $deleteForm->createView(),
-        ));
+        );
     }
 
     /**
@@ -65,11 +68,12 @@ class GameController extends Controller
      *
      * @Route("/{id}/edit", name="game_edit")
      * @Method({"GET", "POST"})
+     * @Template("AppBundle:game:edit.html.twig")
      */
     public function editAction(Request $request, Game $game)
     {
         $deleteForm = $this->createDeleteForm($game);
-        $editForm = $this->createForm(get_class(new GameType()), $game);
+        $editForm   = $this->createForm(get_class(new GameType()), $game);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
@@ -80,11 +84,11 @@ class GameController extends Controller
             return $this->redirectToRoute('game_edit', array('id' => $game->getId()));
         }
 
-        return $this->render('game/edit.html.twig', array(
-            'game' => $game,
-            'edit_form' => $editForm->createView(),
+        return array(
+            'game'        => $game,
+            'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
-        ));
+        );
     }
 
     /**
