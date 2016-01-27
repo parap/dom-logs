@@ -122,7 +122,7 @@ class GameController extends Controller
             $em->flush();
         }
 
-        return $this->redirectToRoute('game_index');
+        return $this->redirectToRoute('homepage');
     }
 
     /**
