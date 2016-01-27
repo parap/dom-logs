@@ -18,23 +18,6 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 class GameController extends Controller
 {
     /**
-     * Lists all Game entities.
-     *
-     * @Route("/", name="game_index")
-     * @Method("GET")
-     */
-    public function indexAction()
-    {
-        $em = $this->getDoctrine()->getManager();
-
-        $games = $em->getRepository('AppBundle:Game')->findAll();
-
-        return $this->render('game/index.html.twig', array(
-            'games' => $games,
-        ));
-    }
-
-    /**
      * Creates a new Game entity.
      *
      * @Route("/new", name="game_new")
