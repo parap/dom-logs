@@ -115,7 +115,7 @@ class GameController extends Controller
         $form = $this->createDeleteForm($game);
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
+        if ($game->getUser()->getId() === $this->getUser()->getId()) {
             $em = $this->getDoctrine()->getManager();
             $em->remove($game);
             $em->flush();
