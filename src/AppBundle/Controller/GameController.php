@@ -106,7 +106,7 @@ class GameController extends Controller
     /**
      * Deletes a Game entity.
      *
-     * @Route("/delete/{id}", name="game_delete")
+     * @Route("/{id}/delete", name="game_delete")
      * @Method("GET")
      */
     public function deleteAction(Request $request, Game $game)
