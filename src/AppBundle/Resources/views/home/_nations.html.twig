@@ -41,7 +41,15 @@
                 <td>{{ game.nation.age }}</td>
                 <td>{{ game.nation.name }}</td>
                 <td>{{ game.map }}</td>
-                <td><a href="">Add turn</a>&nbsp;<a href="">Delete</a></td>
+                <td>
+                    <a href="">Add turn</a>
+                    &nbsp;
+                    <a href="{{ url('game_show', {'id': game.id}) }}">View</a>
+                    &nbsp;
+                    <a href="{{ url('game_edit', {'id': game.id}) }}">Edit</a>
+                    &nbsp;
+                    <a href="{{ url('game_delete', {'id': game.id}) }}" onclick="return confirm('Do you really want to delete game?');">Delete</a>
+                </td>
             </tr>
             {% endfor %}
             </tbody>
@@ -49,4 +57,4 @@
     </div>
 </div>
 
-<div><a href=""><button>Add new game</button></a></div>
+<div><a href="{{ url('game_new') }}"><button>Add new game</button></a></div>
