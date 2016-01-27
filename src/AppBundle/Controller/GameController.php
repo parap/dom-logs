@@ -43,6 +43,7 @@ class GameController extends Controller
     public function newAction(Request $request)
     {
         $game = new Game();
+        $game->setUser($this->getUser());
         $form = $this->createForm(get_class(new GameType()), $game);
         $form->handleRequest($request);
 

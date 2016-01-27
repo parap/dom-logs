@@ -23,7 +23,6 @@ class GameType extends AbstractType
             ->add('serverLink')
             ->add('thread')
             ->add('nation')
-            ->add('user')
         ;
     }
     
