@@ -13,14 +13,7 @@
         </div>
 
         {% if app.user %}
-        <div style="text-align: center">
-            <div># List of my games #</div>
-            {% for game in app.user.games %}
-            Era: {{ game.nation.age }}<br/>
-            Nation: {{ game.nation.name }}<br/>
-            Map: {{ game.map }}
-            {% endfor %}
-        </div>
+        {% include 'AppBundle:home:_nations.html.twig' %}
         {% else %}
         <div style="display:block; margin-top: 20px; text-align: center;">
             <strong>Nations list:</strong>

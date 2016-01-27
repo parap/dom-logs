@@ -1,0 +1,8 @@
+<div style="text-align: center">
+    <div># List of my games #</div>
+    {% for game in app.user.games %}
+    Era: {{ game.nation.age }}<br/>
+    Nation: {{ game.nation.name }}<br/>
+    Map: {{ game.map }}<br/>
+    {% endfor %}
+</div>
