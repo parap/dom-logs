@@ -40,5 +40,5 @@
         </tbody>
     </table>
 
-    {% include 'AppBundle:turn:index.html.twig' with {'turns': game.turns} %}
+    {% include 'AppBundle:turn:index.html.twig' with {'turns': game.turns, 'game': game} %}
 {% endblock %}
