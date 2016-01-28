@@ -332,4 +332,9 @@ class Game
     {
         return $this->getNation() . ' ' . $this->getNation()->getAge() . ' Age';
     }
+
+    public function getTurns()
+    {
+        return $this->turns;
+    }
 }
