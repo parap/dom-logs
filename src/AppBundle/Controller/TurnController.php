@@ -43,7 +43,7 @@ class TurnController extends Controller
     public function newAction(Request $request)
     {
         $turn = new Turn();
-        $form = $this->createForm(new TurnType(), $turn);
+        $form = $this->createForm(get_class(new TurnType()), $turn);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -81,7 +81,7 @@ class TurnController extends Controller
     public function editAction(Request $request, Turn $turn)
     {
         $deleteForm = $this->createDeleteForm($turn);
-        $editForm = $this->createForm(new TurnType(), $turn);
+        $editForm = $this->createForm(get_class(new TurnType()), $turn);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
