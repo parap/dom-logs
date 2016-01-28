@@ -40,9 +40,13 @@ class GameController extends Controller
             return $this->redirectToRoute('game_show', array('id' => $game->getId()));
         }
 
+        $repo = $this->container->get('doctrine')->getRepository('AppBundle:Nation');
+        $nations = [$repo->findByAge(1), $repo->findByAge(2), $repo->findByAge(3)];
+
         return array(
             'game' => $game,
             'form' => $form->createView(),
+            'nations' => $nations
         );
     }
 
