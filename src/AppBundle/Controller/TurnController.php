@@ -8,6 +8,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use AppBundle\Entity\Turn;
 use AppBundle\Form\TurnType;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 /**
  * Turn controller.
@@ -21,6 +22,7 @@ class TurnController extends Controller
      *
      * @Route("/", name="turn_index")
      * @Method("GET")
+     * @Template("AppBundle:turn:index.html.twig")
      */
     public function indexAction()
     {
@@ -28,9 +30,7 @@ class TurnController extends Controller
 
         $turns = $em->getRepository('AppBundle:Turn')->findAll();
 
-        return $this->render('turn/index.html.twig', array(
-            'turns' => $turns,
-        ));
+        return array('turns' => $turns);
     }
 
     /**
@@ -38,6 +38,7 @@ class TurnController extends Controller
      *
      * @Route("/new", name="turn_new")
      * @Method({"GET", "POST"})
+     * @Template("AppBundle:turn:new.html.twig")
      */
     public function newAction(Request $request)
     {
@@ -53,10 +54,7 @@ class TurnController extends Controller
             return $this->redirectToRoute('turn_show', array('id' => $turn->getId()));
         }
 
-        return $this->render('turn/new.html.twig', array(
-            'turn' => $turn,
-            'form' => $form->createView(),
-        ));
+        return array('turn' => $turn,'form' => $form->createView());
     }
 
     /**
@@ -64,15 +62,13 @@ class TurnController extends Controller
      *
      * @Route("/{id}", name="turn_show")
      * @Method("GET")
+     * @Template("AppBundle:turn:show.html.twig")
      */
     public function showAction(Turn $turn)
     {
         $deleteForm = $this->createDeleteForm($turn);
 
-        return $this->render('turn/show.html.twig', array(
-            'turn' => $turn,
-            'delete_form' => $deleteForm->createView(),
-        ));
+        return array('turn' => $turn,'delete_form' => $deleteForm->createView());
     }
 
     /**
@@ -80,6 +76,7 @@ class TurnController extends Controller
      *
      * @Route("/{id}/edit", name="turn_edit")
      * @Method({"GET", "POST"})
+     * @Template("AppBundle:turn:edit.html.twig")
      */
     public function editAction(Request $request, Turn $turn)
     {
@@ -95,11 +92,11 @@ class TurnController extends Controller
             return $this->redirectToRoute('turn_edit', array('id' => $turn->getId()));
         }
 
-        return $this->render('turn/edit.html.twig', array(
+        return array(
             'turn' => $turn,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
-        ));
+        );
     }
 
     /**
