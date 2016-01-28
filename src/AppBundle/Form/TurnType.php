@@ -16,6 +16,12 @@ class TurnType extends AbstractType
     {
         $builder
             ->add('game')
+            ->add('number')
+            ->add('result')
+            ->add('idea')
+            ->add('plan')
+            ->add('action')
+            ->add('privacy')
         ;
     }
     
