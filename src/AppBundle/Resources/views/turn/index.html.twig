@@ -1,37 +1,39 @@
-{% extends 'AppBundle::base.html.twig' %}
+<h1>Turns list</h1>
 
-{% block body %}
-    <h1>Turns list</h1>
+<table>
+    <thead>
+    <tr>
+        <th>Number</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for turn in turns %}
+    <tr>
+        <td><a href="{{ path('turn_show', { 'id': turn.id }) }}">{{ turn.number }}</a></td>
+        <td>
+            <ul>
+                <li>
+                    <a href="{{ path('turn_show', { 'id': turn.id }) }}">show</a>
+                </li>
+                <li>
+                    <a href="{{ path('turn_edit', { 'id': turn.id }) }}">edit</a>
+                </li>
+            </ul>
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Number</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for turn in turns %}
-            <tr>
-                <td><a href="{{ path('turn_show', { 'id': turn.id }) }}">{{ turn.number }}</a></td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('turn_show', { 'id': turn.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('turn_edit', { 'id': turn.id }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('turn_new') }}">Add new turn</a>
-        </li>
-    </ul>
-{% endblock %}
+<ul>
+    <li>
+        <a href="{{ path('turn_new') }}">Add new turn</a>
+    </li>
+    <li>
+        <a href="{{ path('homepage') }}">Back to the list</a>
+    </li>
+    <li>
+        <a href="{{ path('game_edit', { 'id': game.id }) }}">Edit</a>
+    </li>
+</ul>
