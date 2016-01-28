@@ -15,7 +15,6 @@ class TurnType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('game')
             ->add('number')
             ->add('result')
             ->add('idea')

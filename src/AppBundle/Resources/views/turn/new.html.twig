@@ -3,6 +3,7 @@
 {% block body %}
     <h1>Turn creation</h1>
 
+    Game {{ turn.game }}
     {{ form_start(form) }}
         {{ form_widget(form) }}
         <input type="submit" value="Create" />
