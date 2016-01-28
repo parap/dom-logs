@@ -17,7 +17,7 @@
                 <td>{{ game.nation.name }}</td>
                 <td>{{ game.map }}</td>
                 <td>
-                    <a href="">Add turn</a>
+                    <a href="{{ url('turn_new', {'id': game.id}) }}">Add turn</a>
                     &nbsp;
                     <a href="{{ url('game_show', {'id': game.id}) }}">View</a>
                     &nbsp;

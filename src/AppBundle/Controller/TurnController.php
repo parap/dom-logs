@@ -7,6 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use AppBundle\Entity\Turn;
+use AppBundle\Entity\Game;
 use AppBundle\Form\TurnType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
@@ -36,13 +37,13 @@ class TurnController extends Controller
     /**
      * Creates a new Turn entity.
      *
-     * @Route("/new", name="turn_new")
+     * @Route("/new/{id}", name="turn_new")
      * @Method({"GET", "POST"})
      * @Template("AppBundle:turn:new.html.twig")
      */
-    public function newAction(Request $request)
+    public function newAction(Request $request, Game $game)
     {
-        $turn = new Turn();
+        $turn = (new Turn())->setGame($game);
         $form = $this->createForm(get_class(new TurnType()), $turn);
         $form->handleRequest($request);
 
