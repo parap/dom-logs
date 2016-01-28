@@ -327,4 +327,9 @@ class Game
     {
         return $this->id;
     }
+
+    public function __toString()
+    {
+        return $this->getNation() . ' ' . $this->getNation()->getAge() . ' Age';
+    }
 }
