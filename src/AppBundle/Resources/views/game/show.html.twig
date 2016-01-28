@@ -1,0 +1,51 @@
+{% extends 'AppBundle::base.html.twig' %}
+
+{% block body %}
+    <h1>Game</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Pretender</th>
+                <td>{{ game.pretender }}</td>
+            </tr>
+            <tr>
+                <th>Plangeneral</th>
+                <td>{{ game.planGeneral }}</td>
+            </tr>
+            <tr>
+                <th>Map</th>
+                <td>{{ game.map }}</td>
+            </tr>
+            <tr>
+                <th>Planresearch</th>
+                <td>{{ game.planResearch }}</td>
+            </tr>
+            <tr>
+                <th>Winner</th>
+                <td>{{ game.winner }}</td>
+            </tr>
+            <tr>
+                <th>Serverlink</th>
+                <td>{{ game.serverLink }}</td>
+            </tr>
+            <tr>
+                <th>Thread</th>
+                <td>{{ game.thread }}</td>
+            </tr>
+            <tr>
+                <th>Id</th>
+                <td>{{ game.id }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('homepage') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('game_edit', { 'id': game.id }) }}">Edit</a>
+        </li>
+    </ul>
+{% endblock %}

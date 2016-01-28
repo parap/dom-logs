@@ -1,0 +1,23 @@
+{% extends 'AppBundle::base.html.twig' %}
+
+{% block body %}
+
+<h1>Game creation</h1>
+{{ form_start(form) }}
+{{ form_widget(form) }}
+<input type="submit" value="Create"/>
+{{ form_end(form) }}
+
+<ul>
+    <li>
+        <a href="{{ path('homepage') }}">Back to the list</a>
+    </li>
+</ul>
+
+{% for age, nationsAge in nations %}
+{% for nation in nationsAge %}
+<span id="nid_{{ nation.id }}" class="nage_{{ nation.age }}">{{ nation.name }}</span>
+{% endfor %}
+{% endfor %}
+
+{% endblock %}
