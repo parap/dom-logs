@@ -4,6 +4,7 @@ namespace AppBundle\Entity;
 
 use AppBundle\Entity\Nation;
 use AppBundle\Entity\User;
+use Doctrine\Common\Collections\ArrayCollection;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -89,7 +90,17 @@ class Game
      */
     private $id;
 
+    /**
+     * @var Turn[]|ArrayCollection $turns
+     *
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Turn", mappedBy="game", cascade={"remove"})
+     */
+    private $turns;
 
+    public function __construct()
+    {
+        $this->turns = new ArrayCollection();
+    }
 
     /**
      * Set nation

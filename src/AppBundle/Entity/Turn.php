@@ -2,15 +2,24 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
+use AppBundle\Entity\Game;
+
 /**
  * Turn
+ *
+ * @ORM\Table(name="turn", indexes={@ORM\Index(name="game_id", columns={"game_id"})})
+ * @ORM\Entity(repositoryClass="AppBundle\Repo\TurnRepository")
  */
 class Turn
 {
     /**
-     * @var integer
+     * @var Game $game
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Game", inversedBy="turns")
+     * @ORM\JoinColumn(name="game_id", referencedColumnName="id", nullable=false, onDelete="CASCADE")
      */
-    private $idGame;
+    private $game;
 
     /**
      * @var integer
@@ -44,32 +53,36 @@ class Turn
 
     /**
      * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
 
 
     /**
-     * Set idGame
+     * Set game
      *
-     * @param integer $idGame
+     * @param integer $game
      *
      * @return Turn
      */
-    public function setIdGame($idGame)
+    public function setGame($game)
     {
-        $this->idGame = $idGame;
+        $this->game = $game;
 
         return $this;
     }
 
     /**
-     * Get idGame
+     * Get game
      *
-     * @return integer
+     * @return Game
      */
-    public function getIdGame()
+    public function getGame()
     {
-        return $this->idGame;
+        return $this->game;
     }
 
     /**
