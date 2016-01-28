@@ -1,16 +1,47 @@
 {% extends 'AppBundle::base.html.twig' %}
 
 {% block body %}
-    <h1>Game creation</h1>
 
-    {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <input type="submit" value="Create" />
-    {{ form_end(form) }}
+<style type="text/css">
+    .nage_Early, .nage_Middle, .nage_Late {
+        display: none;
+    }
+</style>
 
-    <ul>
-        <li>
-            <a href="{{ path('homepage') }}">Back to the list</a>
-        </li>
-    </ul>
+<h1>Game creation</h1>
+{{ form_start(form) }}
+{{ form_widget(form) }}
+<input type="submit" value="Create"/>
+{{ form_end(form) }}
+
+<ul>
+    <li>
+        <a href="{{ path('homepage') }}">Back to the list</a>
+    </li>
+</ul>
+
+{% for age, nationsAge in nations %}
+{% for nation in nationsAge %}
+<span id="nid_{{ nation.id }}" class="nage_{{ nation.age }}">{{ nation.name }}</span>
+{% endfor %}
+{% endfor %}
+
+<script type="text/javascript">
+    function disableOtherThan(age) {
+        $('#game_nation').find('option').remove();
+
+        $('.nage_' + age).each(function (index) {
+            var id = $(this).attr('id').split('_').pop();
+            var value = $(this).text();
+
+            $('#game_nation').append('<option value="' + id + '">' + value + '</option>');
+        });
+    }
+
+    $('#game_age').on('change', function (e) {
+        var age = $('#game_age>option:selected').text();
+        disableOtherThan(age);
+    });
+</script>
+
 {% endblock %}
