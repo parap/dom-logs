@@ -15,7 +15,7 @@ class Version20160129100929 extends AbstractMigration
      */
     public function up(Schema $schema)
     {
-        $sql = "INSERT INTO `maps` (`id`, `name`) VALUES
+        $sql = "INSERT INTO `map` (`id`, `name`) VALUES
 (1, 'Seaside Valley'),
 (2, 'Riverlands'),
 (3, 'Coasts of Despair'),
@@ -60,6 +60,6 @@ class Version20160129100929 extends AbstractMigration
      */
     public function down(Schema $schema)
     {
-        $this->addSql("TRUNCATE `maps`");
+        $this->addSql("TRUNCATE `map`");
     }
 }

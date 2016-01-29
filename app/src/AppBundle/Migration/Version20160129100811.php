@@ -15,7 +15,7 @@ class Version20160129100811 extends AbstractMigration
      */
     public function up(Schema $schema)
     {
-        $sql = "CREATE TABLE IF NOT EXISTS `maps` (
+        $sql = "CREATE TABLE IF NOT EXISTS `map` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
@@ -29,6 +29,6 @@ class Version20160129100811 extends AbstractMigration
      */
     public function down(Schema $schema)
     {
-        $this->addSql("DROP TABLE `maps`");
+        $this->addSql("DROP TABLE `map`");
     }
 }
