@@ -90,7 +90,7 @@ class TurnController extends Controller
             $em->persist($turn);
             $em->flush();
 
-            return $this->redirectToRoute('turn_edit', array('id' => $turn->getId()));
+            return $this->redirectToRoute('game_show', array('id' => $turn->getGame()->getId()));
         }
 
         return array(
