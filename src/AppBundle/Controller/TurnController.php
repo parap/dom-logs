@@ -19,22 +19,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 class TurnController extends Controller
 {
     /**
-     * Lists all Turn entities.
-     *
-     * @Route("/", name="turn_index")
-     * @Method("GET")
-     * @Template("AppBundle:turn:index.html.twig")
-     */
-    public function indexAction()
-    {
-        $em = $this->getDoctrine()->getManager();
-
-        $turns = $em->getRepository('AppBundle:Turn')->findAll();
-
-        return array('turns' => $turns);
-    }
-
-    /**
      * Creates a new Turn entity.
      *
      * @Route("/new/{id}", name="turn_new")
