@@ -5,6 +5,7 @@ namespace AppBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 class TurnType extends AbstractType
 {
@@ -14,12 +15,12 @@ class TurnType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $last = method_exists($options['data'], 'getGame') ? $options['data']->getGame()->getLastTurnNumber() : 0;
-
-//        var_dump($options['data']->getGame()->getTurnsAvailable());
+        $last      = $options['data']->getGame()->getLastTurnNumber();
+        $available = $options['data']->getGame()->getTurnsAvailable(10);
+        $lastIndex = array_flip($available)[$last+1];
 
         $builder
-            ->add('number', null, ['data' => $last + 1])
+            ->add('number', ChoiceType::class, ['choices' => array_flip($available), 'choices_as_values' => true, 'data' => $lastIndex])
             ->add('result')
             ->add('idea')
             ->add('plan')

@@ -350,4 +350,20 @@ class Game
 
         return $max;
     }
+
+    public function getTurnsAvailable($offset = 1)
+    {
+        $max      = $this->getLastTurnNumber();
+        $mask     = range(1, $max + $offset);
+        $existing = [];
+
+        foreach ($this->turns as $turn) {
+            $existing[$turn->getNumber()] = $turn->getNumber();
+        }
+
+        // we want to have the same keys and values to allow array to be flipped
+        $result = array_diff($mask, $existing);
+
+        return array_combine(array_values($result), array_values($result));
+    }
 }
