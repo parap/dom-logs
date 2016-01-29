@@ -14,8 +14,12 @@ class TurnType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        $last = method_exists($options['data'], 'getGame') ? $options['data']->getGame()->getLastTurnNumber() : 0;
+
+//        var_dump($options['data']->getGame()->getTurnsAvailable());
+
         $builder
-            ->add('number')
+            ->add('number', null, ['data' => $last + 1])
             ->add('result')
             ->add('idea')
             ->add('plan')
@@ -23,7 +27,7 @@ class TurnType extends AbstractType
             ->add('privacy')
         ;
     }
-    
+
     /**
      * @param OptionsResolver $resolver
      */
