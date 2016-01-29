@@ -17,10 +17,15 @@ class TurnType extends AbstractType
     {
         $last      = $options['data']->getGame()->getLastTurnNumber();
         $available = $options['data']->getGame()->getTurnsAvailable(10);
-        $lastIndex = array_flip($available)[$last+1];
+        $lastIndex = array_flip($available)[$last + 1];
+        $new       = is_null($options['data']->getId());
+
+        if ($new) {
+            $builder
+                ->add('number', ChoiceType::class, ['choices' => array_flip($available), 'choices_as_values' => true, 'data' => $lastIndex]);
+        }
 
         $builder
-            ->add('number', ChoiceType::class, ['choices' => array_flip($available), 'choices_as_values' => true, 'data' => $lastIndex])
             ->add('result')
             ->add('idea')
             ->add('plan')
