@@ -30,8 +30,19 @@ class TurnType extends AbstractType
             ->add('idea')
             ->add('plan')
             ->add('action')
-            ->add('privacy')
         ;
+
+        $builder->add(
+            'privacy',
+            ChoiceType::class,
+            [
+                'choices' => [
+                    'None'  => 0,
+                    'Link' => 1,
+                ],
+                'choices_as_values' => true,
+            ]
+        );
     }
 
     /**

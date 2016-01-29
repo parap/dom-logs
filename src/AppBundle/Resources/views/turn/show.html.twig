@@ -23,7 +23,7 @@
             </tr>
             <tr>
                 <th>Privacy</th>
-                <td>{{ turn.privacy }}</td>
+                <td>{% if turn.privacy == 0 %}None{% else %}Link{% endif %}</td>
             </tr>
         </tbody>
     </table>
