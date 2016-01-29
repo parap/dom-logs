@@ -318,6 +318,11 @@ class Game
         return $this->user;
     }
 
+    public function belongsTo(User $user)
+    {
+        return $this->user->getId() === $user->getId();
+    }
+
     /**
      * Get id
      *

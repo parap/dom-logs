@@ -43,6 +43,10 @@ class TurnController extends Controller
      */
     public function newAction(Request $request, Game $game)
     {
+        if (!$game->belongsTo($this->getUser())) {
+            return $this->redirectToRoute('homepage');
+        }
+
         $turn = (new Turn())->setGame($game);
         $form = $this->createForm(get_class(new TurnType()), $turn);
         $form->handleRequest($request);
@@ -67,6 +71,10 @@ class TurnController extends Controller
      */
     public function showAction(Turn $turn)
     {
+        if (!$turn->getGame()->belongsTo($this->getUser())) {
+            return $this->redirectToRoute('homepage');
+        }
+
         $deleteForm = $this->createDeleteForm($turn);
 
         return array('turn' => $turn,'delete_form' => $deleteForm->createView());
@@ -81,6 +89,10 @@ class TurnController extends Controller
      */
     public function editAction(Request $request, Turn $turn)
     {
+        if (!$turn->getGame()->belongsTo($this->getUser())) {
+            return $this->redirectToRoute('homepage');
+        }
+
         $deleteForm = $this->createDeleteForm($turn);
         $editForm = $this->createForm(get_class(new TurnType()), $turn);
         $editForm->handleRequest($request);
@@ -108,6 +120,10 @@ class TurnController extends Controller
      */
     public function deleteAction(Request $request, Turn $turn)
     {
+        if (!$turn->getGame()->belongsTo($this->getUser())) {
+            return $this->redirectToRoute('homepage');
+        }
+
         $form = $this->createDeleteForm($turn);
         $form->handleRequest($request);
 

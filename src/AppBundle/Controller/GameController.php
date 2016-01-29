@@ -59,6 +59,10 @@ class GameController extends Controller
      */
     public function showAction(Game $game)
     {
+        if (!$game->belongsTo($this->getUser())) {
+            return $this->redirectToRoute('homepage');
+        }
+
         $deleteForm = $this->createDeleteForm($game);
 
         return array(
@@ -76,6 +80,10 @@ class GameController extends Controller
      */
     public function editAction(Request $request, Game $game)
     {
+        if (!$game->belongsTo($this->getUser())) {
+            return $this->redirectToRoute('homepage');
+        }
+
         $deleteForm = $this->createDeleteForm($game);
         $editForm   = $this->createForm(get_class(new GameType()), $game);
         $editForm->handleRequest($request);
@@ -104,6 +112,10 @@ class GameController extends Controller
      */
     public function deleteAction(Request $request, Game $game)
     {
+        if (!$game->belongsTo($this->getUser())) {
+            return $this->redirectToRoute('homepage');
+        }
+
         $form = $this->createDeleteForm($game);
         $form->handleRequest($request);
 
