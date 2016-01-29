@@ -7,6 +7,7 @@
                 <td>Era</td>
                 <td>Nation</td>
                 <td>Map</td>
+                <td>Turns</td>
                 <td>Actions</td>
             </tr>
             </thead>
@@ -16,8 +17,9 @@
                 <td>{{ game.nation.age }}</td>
                 <td>{{ game.nation.name }}</td>
                 <td>{{ game.map }}</td>
+                <td>{{ game.turns|length }}</td>
                 <td>
-                    <a href="">Add turn</a>
+                    <a href="{{ url('turn_new', {'id': game.id}) }}">Add turn</a>
                     &nbsp;
                     <a href="{{ url('game_show', {'id': game.id}) }}">View</a>
                     &nbsp;

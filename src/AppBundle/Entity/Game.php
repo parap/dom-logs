@@ -4,6 +4,7 @@ namespace AppBundle\Entity;
 
 use AppBundle\Entity\Nation;
 use AppBundle\Entity\User;
+use AppBundle\Entity\Map;
 use Doctrine\Common\Collections\ArrayCollection;
 
 use Doctrine\ORM\Mapping as ORM;
@@ -39,9 +40,10 @@ class Game
     private $planGeneral;
 
     /**
-     * @var string
+     * @var Map $map
      *
-     * @ORM\Column(name="map", type="string", length=256, nullable=true)
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Map", inversedBy="games")
+     * @ORM\JoinColumn(name="map_id", referencedColumnName="id", nullable=false, onDelete="CASCADE")
      */
     private $map;
 
@@ -318,6 +320,11 @@ class Game
         return $this->user;
     }
 
+    public function belongsTo(User $user)
+    {
+        return $this->user->getId() === $user->getId();
+    }
+
     /**
      * Get id
      *
@@ -326,5 +333,44 @@ class Game
     public function getId()
     {
         return $this->id;
+    }
+
+    public function __toString()
+    {
+        return $this->getNation() . ' ' . $this->getNation()->getAge() . ' Age';
+    }
+
+    public function getTurns()
+    {
+        return $this->turns;
+    }
+
+    public function getLastTurnNumber()
+    {
+        $max = 0;
+
+        foreach ($this->turns as $turn) {
+            if ($turn->getNumber() > $max) {
+                $max = $turn->getNumber();
+            }
+        }
+
+        return $max;
+    }
+
+    public function getTurnsAvailable($offset = 1)
+    {
+        $max      = $this->getLastTurnNumber();
+        $mask     = range(1, $max + $offset);
+        $existing = [];
+
+        foreach ($this->turns as $turn) {
+            $existing[$turn->getNumber()] = $turn->getNumber();
+        }
+
+        // we want to have the same keys and values to allow array to be flipped
+        $result = array_diff($mask, $existing);
+
+        return array_combine(array_values($result), array_values($result));
     }
 }

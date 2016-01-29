@@ -59,6 +59,10 @@ class GameController extends Controller
      */
     public function showAction(Game $game)
     {
+        if (!$game->belongsTo($this->getUser())) {
+            return $this->redirectToRoute('homepage');
+        }
+
         $deleteForm = $this->createDeleteForm($game);
 
         return array(
@@ -76,6 +80,10 @@ class GameController extends Controller
      */
     public function editAction(Request $request, Game $game)
     {
+        if (!$game->belongsTo($this->getUser())) {
+            return $this->redirectToRoute('homepage');
+        }
+
         $deleteForm = $this->createDeleteForm($game);
         $editForm   = $this->createForm(get_class(new GameType()), $game);
         $editForm->handleRequest($request);
@@ -88,10 +96,14 @@ class GameController extends Controller
             return $this->redirectToRoute('game_edit', array('id' => $game->getId()));
         }
 
+        $repo = $this->container->get('doctrine')->getRepository('AppBundle:Nation');
+        $nations = [$repo->findByAge(1), $repo->findByAge(2), $repo->findByAge(3)];
+
         return array(
             'game'        => $game,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
+            'nations' => $nations
         );
     }
 
@@ -104,6 +116,10 @@ class GameController extends Controller
      */
     public function deleteAction(Request $request, Game $game)
     {
+        if (!$game->belongsTo($this->getUser())) {
+            return $this->redirectToRoute('homepage');
+        }
+
         $form = $this->createDeleteForm($game);
         $form->handleRequest($request);
 

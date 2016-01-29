@@ -23,31 +23,43 @@ class Turn
 
     /**
      * @var integer
+     *
+     * @ORM\Column(name="number", type="integer", nullable=false)
      */
     private $number;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="result", type="text", length=65535, nullable=true)
      */
     private $result;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="idea", type="text", length=65535, nullable=true)
      */
     private $idea;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="plan", type="text", length=65535, nullable=true)
      */
     private $plan;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="action", type="text", length=65535, nullable=true)
      */
     private $action;
 
     /**
      * @var boolean
+     *
+     * @ORM\Column(name="privacy", type="integer", nullable=false)
      */
     private $privacy = '0';
 
