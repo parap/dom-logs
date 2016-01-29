@@ -96,10 +96,14 @@ class GameController extends Controller
             return $this->redirectToRoute('game_edit', array('id' => $game->getId()));
         }
 
+        $repo = $this->container->get('doctrine')->getRepository('AppBundle:Nation');
+        $nations = [$repo->findByAge(1), $repo->findByAge(2), $repo->findByAge(3)];
+
         return array(
             'game'        => $game,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
+            'nations' => $nations
         );
     }
 
