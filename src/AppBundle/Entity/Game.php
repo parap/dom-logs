@@ -4,6 +4,7 @@ namespace AppBundle\Entity;
 
 use AppBundle\Entity\Nation;
 use AppBundle\Entity\User;
+use AppBundle\Entity\Map;
 use Doctrine\Common\Collections\ArrayCollection;
 
 use Doctrine\ORM\Mapping as ORM;
@@ -39,9 +40,10 @@ class Game
     private $planGeneral;
 
     /**
-     * @var string
+     * @var Map $map
      *
-     * @ORM\Column(name="map", type="string", length=256, nullable=true)
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Map", inversedBy="games")
+     * @ORM\JoinColumn(name="map_id", referencedColumnName="id", nullable=false, onDelete="CASCADE")
      */
     private $map;
 
