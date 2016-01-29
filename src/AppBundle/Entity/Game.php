@@ -337,4 +337,17 @@ class Game
     {
         return $this->turns;
     }
+
+    public function getLastTurnNumber()
+    {
+        $max = 0;
+
+        foreach ($this->turns as $turn) {
+            if ($turn->getNumber() > $max) {
+                $max = $turn->getNumber();
+            }
+        }
+
+        return $max;
+    }
 }
