@@ -93,7 +93,7 @@ class GameController extends Controller
             $em->persist($game);
             $em->flush();
 
-            return $this->redirectToRoute('game_edit', array('id' => $game->getId()));
+            return $this->redirectToRoute('game_show', array('id' => $game->getId()));
         }
 
         $repo = $this->container->get('doctrine')->getRepository('AppBundle:Nation');
