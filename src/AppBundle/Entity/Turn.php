@@ -231,6 +231,11 @@ class Turn
         return $this;
     }
 
+    public function generateShareLink()
+    {
+        $this->shareLink = (string)md5(microtime(true) . date('MYdis'));
+    }
+
     /**
      * Get privacy
      *
