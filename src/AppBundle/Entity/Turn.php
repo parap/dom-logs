@@ -76,7 +76,7 @@ class Turn
     /**
      * Set game
      *
-     * @param integer $game
+     * @param Game $game
      *
      * @return Turn
      */
