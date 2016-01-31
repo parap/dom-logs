@@ -41,7 +41,7 @@ class TurnController extends Controller
             $em->flush();
 
             if ($turn->getShareLink() !== '0') {
-                $turn->setShareLink((string)md5(microtime(true) . date('MYdis')));
+                $turn->generateShareLink();
                 $em->persist($turn);
                 $em->flush();
             }
@@ -80,6 +80,46 @@ class TurnController extends Controller
     public function showSharedAction(Turn $turn)
     {
         return array('turn' => $turn);
+    }
+
+    /**
+     * Finds and displays a Turn entity.
+     *
+     * @Route("/link/delete/{id}", name="turn_shared_delete")
+     * @Method("GET")
+     */
+    public function deleteLink(Turn $turn)
+    {
+        if (!$turn->getGame()->belongsTo($this->getUser())) {
+            return $this->redirectToRoute('homepage');
+        }
+
+        $turn->setShareLink(null);
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($turn);
+        $em->flush();
+
+        return $this->redirectToRoute('turn_edit', ['id' => $turn->getId()]);
+    }
+
+    /**
+     * Finds and displays a Turn entity.
+     *
+     * @Route("/link/generate/{id}", name="turn_shared_generate")
+     * @Method("GET")
+     */
+    public function generateLink(Turn $turn)
+    {
+        if (!$turn->getGame()->belongsTo($this->getUser())) {
+            return $this->redirectToRoute('homepage');
+        }
+
+        $turn->generateShareLink();
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($turn);
+        $em->flush();
+
+        return $this->redirectToRoute('turn_edit', ['id' => $turn->getId()]);
     }
 
     /**
