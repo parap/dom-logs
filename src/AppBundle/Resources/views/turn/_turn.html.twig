@@ -28,7 +28,13 @@
     {% endif %}
     <tr>
         <th>Link to share turn</th>
-        <td>{% if turn.privacy == 0 %}None{% else %}Link{% endif %}</td>
+        <td>
+            {% if turn.shareLink == 0 %}
+                None
+            {% else %}
+                <a target="_blank" href="{{ url('turn_shared_show', {'shareLink': turn.shareLink}) }}">{{ url('turn_shared_show', {'shareLink': turn.shareLink}) }}</a>
+            {% endif %}
+        </td>
     </tr>
     </tbody>
 </table>
