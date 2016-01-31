@@ -108,6 +108,8 @@ class TurnController extends Controller
             return $this->redirectToRoute('homepage');
         }
 
+        $gameId = $turn->getGame()->getId();
+
         $form = $this->createDeleteForm($turn);
         $form->handleRequest($request);
 
@@ -117,7 +119,7 @@ class TurnController extends Controller
             $em->flush();
         }
 
-        return $this->redirectToRoute('turn_index');
+        return $this->redirectToRoute('game_show', ['id'=> $gameId]);
     }
 
     /**
