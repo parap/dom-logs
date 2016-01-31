@@ -57,11 +57,11 @@ class Turn
     private $action;
 
     /**
-     * @var boolean
+     * @var string
      *
-     * @ORM\Column(name="privacy", type="integer", nullable=false)
+     * @ORM\Column(name="sharelink", type="string", nullable=true)
      */
-    private $privacy = '0';
+    private $shareLink;
 
     /**
      * @var integer
@@ -218,15 +218,15 @@ class Turn
     }
 
     /**
-     * Set privacy
+     * Set sharelink
      *
-     * @param boolean $privacy
+     * @param string $shareLink
      *
      * @return Turn
      */
-    public function setPrivacy($privacy)
+    public function setShareLink($shareLink)
     {
-        $this->privacy = $privacy;
+        $this->shareLink = $shareLink;
 
         return $this;
     }
@@ -234,11 +234,11 @@ class Turn
     /**
      * Get privacy
      *
-     * @return boolean
+     * @return string
      */
-    public function getPrivacy()
+    public function getShareLink()
     {
-        return $this->privacy;
+        return $this->shareLink;
     }
 
     /**
