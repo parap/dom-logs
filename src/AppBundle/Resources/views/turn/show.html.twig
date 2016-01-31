@@ -7,19 +7,19 @@
         <tbody>
             <tr>
                 <th>Results of previous turn</th>
-                <td>{{ turn.result }}</td>
+                <td>{{ turn.result|raw }}</td>
             </tr>
             <tr>
                 <th>New ideas</th>
-                <td>{{ turn.idea }}</td>
+                <td>{{ turn.idea|raw }}</td>
             </tr>
             <tr>
                 <th>Plan for game on current stage</th>
-                <td>{{ turn.plan }}</td>
+                <td>{{ turn.plan|raw }}</td>
             </tr>
             <tr>
                 <th>Actions of this turn</th>
-                <td>{{ turn.action }}</td>
+                <td>{{ turn.action|raw }}</td>
             </tr>
             <tr>
                 <th>Privacy</th>
