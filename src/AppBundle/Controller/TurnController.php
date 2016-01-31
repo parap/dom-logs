@@ -71,6 +71,18 @@ class TurnController extends Controller
     }
 
     /**
+     * Finds and displays a Turn entity.
+     *
+     * @Route("/share/{shareLink}", name="turn_shared_show")
+     * @Method("GET")
+     * @Template("AppBundle:turn:shared.html.twig")
+     */
+    public function showSharedAction(Turn $turn)
+    {
+        return array('turn' => $turn);
+    }
+
+    /**
      * Displays a form to edit an existing Turn entity.
      *
      * @Route("/{id}/edit", name="turn_edit")
