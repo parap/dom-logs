@@ -32,6 +32,10 @@ class TurnType extends AbstractType
             ->add('action', null, ['attr' => ['class' => 'tinymce']])
         ;
 
+        if (!$new) {
+            return;
+        }
+
         $builder->add(
             'shareLink',
             ChoiceType::class,

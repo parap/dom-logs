@@ -13,6 +13,16 @@
     margin-left: 250px;
 }
 
+.post-shared label{
+    font-weight: bold;
+    margin-left: 250px;
+}
+
+.post-shared input{
+    width: 600px;
+
+}
+
 /*#new game form*/
 .nage_Early, .nage_Middle, .nage_Late {
     display: none;

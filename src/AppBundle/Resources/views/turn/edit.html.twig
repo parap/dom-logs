@@ -5,6 +5,18 @@
 
     {{ form_start(edit_form) }}
         {{ form_widget(edit_form) }}
+        <div class="post-shared">
+            <label>Shared link:</label>
+            <br/>
+
+            <input type="text" disabled="disabled" value="{{url('turn_shared_show', {'shareLink': turn.shareLink}) }}"/>
+            {% if turn.shareLink %}
+            <a href="">Delete</a>
+            <a href="">Regenerate</a>
+            {% else %}
+            <a href="">Generate</a>
+            {% endif %}
+        </div>
         <input type="submit" value="Submit" />
     {{ form_end(edit_form) }}
 
