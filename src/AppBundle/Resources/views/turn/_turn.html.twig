@@ -1,0 +1,34 @@
+<h1>Turn {{ turn.number }} of <a href="{{ path('game_show', { 'id': turn.game.id }) }}">{{ turn.game }} game</a></h1>
+
+<table>
+    <tbody>
+    {% if turn.result %}
+    <tr>
+        <th>Results of previous turn</th>
+        <td>{{ turn.result|raw }}</td>
+    </tr>
+    {% endif %}
+    {% if turn.idea %}
+    <tr>
+        <th>New ideas</th>
+        <td>{{ turn.idea|raw }}</td>
+    </tr>
+    {% endif %}
+    {% if turn.plan %}
+    <tr>
+        <th>Plan for game on current stage</th>
+        <td>{{ turn.plan|raw }}</td>
+    </tr>
+    {% endif %}
+    {% if turn.action %}
+    <tr>
+        <th>Actions of this turn</th>
+        <td>{{ turn.action|raw }}</td>
+    </tr>
+    {% endif %}
+    <tr>
+        <th>Link to share turn</th>
+        <td>{% if turn.privacy == 0 %}None{% else %}Link{% endif %}</td>
+    </tr>
+    </tbody>
+</table>
