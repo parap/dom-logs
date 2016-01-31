@@ -1,5 +1,6 @@
 <div style="text-align: center">
-    <div># List of my games #</div>
+    {% if app.user.games|length %}
+    <div>List of my games</div>
     <div style="text-align: center">
         <table class="myTableStyle">
             <thead>
@@ -32,6 +33,9 @@
             </tbody>
         </table>
     </div>
+    {% else %}
+    You have no games. <a href="{{ url('game_new') }}">Add one</a>!
+    {% endif %}
 </div>
 
 <div><a href="{{ url('game_new') }}"><button>Add new game</button></a></div>
