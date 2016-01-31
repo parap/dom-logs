@@ -31,6 +31,18 @@ class Map
     private $id;
 
     /**
+     * @var Game[]|ArrayCollection $games
+     *
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Game", mappedBy="map", cascade={"remove"})
+     */
+    private $games;
+
+    public function __construct()
+    {
+        $this->games = new ArrayCollection();
+    }
+
+    /**
      * Set name
      *
      * @param string $name
