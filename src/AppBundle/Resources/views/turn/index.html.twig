@@ -10,6 +10,7 @@
     </li>
 </ul>
 
+{% if turns|length > 0 %}
 <h1>Turns list</h1>
 
 <table>
@@ -37,5 +38,7 @@
     {% endfor %}
     </tbody>
 </table>
-
+{% else %}
+<h1>No turns were added for this game</h1>
+{% endif %}
 
