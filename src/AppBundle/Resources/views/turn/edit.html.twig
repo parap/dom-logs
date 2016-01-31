@@ -8,13 +8,16 @@
         <div class="post-shared">
             <label>Shared link:</label>
             <br/>
-
-            <input type="text" disabled="disabled" value="{{url('turn_shared_show', {'shareLink': turn.shareLink}) }}"/>
             {% if turn.shareLink %}
-            <a href="">Delete</a>
-            <a href="">Regenerate</a>
+            <input type="text" disabled="disabled" value="{{url('turn_shared_show', {'shareLink': turn.shareLink}) }}"/>
             {% else %}
-            <a href="">Generate</a>
+            None
+            {% endif %}
+            {% if turn.shareLink %}
+            <a href="{{ url('turn_shared_delete', {'id': turn.id}) }}">Delete</a>
+            <a href="{{ url('turn_shared_generate', {'id': turn.id}) }}">Regenerate</a>
+            {% else %}
+            <a href="{{ url('turn_shared_generate', {'id': turn.id}) }}">Generate</a>
             {% endif %}
         </div>
         <input type="submit" value="Submit" />
