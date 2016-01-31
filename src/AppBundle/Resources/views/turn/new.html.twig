@@ -14,4 +14,7 @@
             <a href="{{ path('game_show', {id: turn.game.id}) }}">Back to game</a>
         </li>
     </ul>
+
+
+{{ tinymce_init({'theme': {'simple': {'menubar': false, 'statusbar': false} }, width: "300", }) }}
 {% endblock %}

@@ -26,10 +26,10 @@ class TurnType extends AbstractType
         }
 
         $builder
-            ->add('result')
-            ->add('idea')
-            ->add('plan')
-            ->add('action')
+            ->add('result', null, ['attr' => ['class' => 'tinymce']])
+            ->add('idea', null, ['attr' => ['class' => 'tinymce']])
+            ->add('plan', null, ['attr' => ['class' => 'tinymce']])
+            ->add('action', null, ['attr' => ['class' => 'tinymce']])
         ;
 
         $builder->add(
