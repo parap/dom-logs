@@ -1,7 +1,7 @@
 {% extends 'AppBundle::base.html.twig' %}
 
 {% block body %}
-    <h1>Turn {{ turn.number }} of {{ turn.game }} game</h1>
+    <h1>Turn {{ turn.number }} of <a href="{{ path('game_show', { 'id': turn.game.id }) }}">{{ turn.game }} game</a></h1>
 
     <table>
         <tbody>
@@ -37,9 +37,6 @@
     </table>
 
     <ul>
-        <li>
-            <a href="{{ path('game_show', { 'id': turn.game.id }) }}">Back to game</a>
-        </li>
         <li>
             <a href="{{ path('turn_edit', { 'id': turn.id }) }}">Edit turn</a>
         </li>
