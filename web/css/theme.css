@@ -1,3 +1,8 @@
+/*header menu*/
+.login-menu a{
+    margin-left: 100px;
+}
+
 /*add/edit turn*/
 #turn > div {
     width: 600px;
