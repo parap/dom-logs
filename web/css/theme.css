@@ -8,8 +8,12 @@
     width: 600px;
 }
 
-/*#new game form*/
+#turn label{
+    font-weight: bold;
+    margin-left: 250px;
+}
 
+/*#new game form*/
 .nage_Early, .nage_Middle, .nage_Late {
     display: none;
 }
