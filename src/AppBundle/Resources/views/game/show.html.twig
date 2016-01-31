@@ -9,17 +9,21 @@
                 <th>Map</th>
                 <td>{{ game.map }}</td>
             </tr>
+            {% if game.pretender %}
             <tr>
                 <th>Pretender</th>
                 <td>{{ game.pretender }}</td>
             </tr>
+            {% endif %}
+            {% if game.planGeneral %}
             <tr>
-                <th>Plangeneral</th>
+                <th>General Plan</th>
                 <td>{{ game.planGeneral }}</td>
             </tr>
+            {% endif %}
             {% if game.planResearch %}
             <tr>
-                <th>Planresearch</th>
+                <th>Plan of Research</th>
                 <td>{{ game.planResearch }}</td>
             </tr>
             {% endif %}
@@ -31,13 +35,13 @@
             {% endif %}
             {% if game.serverLink %}
             <tr>
-                <th>Serverlink</th>
+                <th>Server link</th>
                 <td>{{ game.serverLink }}</td>
             </tr>
             {% endif %}
             {% if game.thread %}
             <tr>
-                <th>Thread</th>
+                <th>Forum thread</th>
                 <td>{{ game.thread }}</td>
             </tr>
             {% endif %}
