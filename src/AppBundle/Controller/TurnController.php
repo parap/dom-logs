@@ -40,6 +40,12 @@ class TurnController extends Controller
             $em->persist($turn);
             $em->flush();
 
+            if ($turn->getShareLink() !== '0') {
+                $turn->setShareLink((string)md5(microtime(true) . date('MYdis')));
+                $em->persist($turn);
+                $em->flush();
+            }
+
             return $this->redirectToRoute('turn_show', array('id' => $turn->getId()));
         }
 
