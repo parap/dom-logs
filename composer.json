@@ -28,7 +28,8 @@
         "incenteev/composer-parameter-handler": "^2.0",
         "doctrine/doctrine-migrations-bundle": "^1.0",
         "friendsofsymfony/user-bundle": "~2.0@dev",
-        "stfalcon/tinymce-bundle": "dev-master"
+        "stfalcon/tinymce-bundle": "dev-master",
+        "vich/uploader-bundle": "1.0.0-beta7"
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",
