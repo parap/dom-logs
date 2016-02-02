@@ -92,6 +92,7 @@ vich_uploader:
         turn_out:
             uri_prefix:         /turns/out
             upload_destination: %kernel.root_dir%/../web/turns
+            namer:              vich_uploader.namer_origname
             inject_on_load:     false
             delete_on_update:   true
             delete_on_remove:   true
@@ -99,6 +100,7 @@ vich_uploader:
         turn_in:
             uri_prefix:         /turns/in
             upload_destination: %kernel.root_dir%/../web/turns
+            namer:              vich_uploader.namer_origname
             inject_on_load:     false
             delete_on_update:   true
             delete_on_remove:   true
