@@ -6,6 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 
 class TurnType extends AbstractType
 {
@@ -30,6 +31,8 @@ class TurnType extends AbstractType
             ->add('idea', null, ['attr' => ['class' => 'tinymce']])
             ->add('plan', null, ['attr' => ['class' => 'tinymce']])
             ->add('action', null, ['attr' => ['class' => 'tinymce']])
+            ->add('turnOutFile', FileType::class, ['label' => '.trn file'])
+            ->add('turnInFile', FileType::class, ['label' => '.2h file'])
         ;
 
         if (!$new) {
