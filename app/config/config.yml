@@ -87,3 +87,18 @@ fos_user:
 # upload files
 vich_uploader:
     db_driver: orm
+
+    mappings:
+        turn_out:
+            uri_prefix:         /turns/out
+            upload_destination: %kernel.root_dir%/../web/turns
+            inject_on_load:     false
+            delete_on_update:   true
+            delete_on_remove:   true
+
+        turn_in:
+            uri_prefix:         /turns/in
+            upload_destination: %kernel.root_dir%/../web/turns
+            inject_on_load:     false
+            delete_on_update:   true
+            delete_on_remove:   true

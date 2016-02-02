@@ -4,12 +4,15 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use AppBundle\Entity\Game;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\HttpFoundation\File\File;
 
 /**
  * Turn
  *
  * @ORM\Table(name="turn", indexes={@ORM\Index(name="game_id", columns={"game_id"})})
  * @ORM\Entity(repositoryClass="AppBundle\Repo\TurnRepository")
+ * @Vich\Uploadable
  */
 class Turn
 {
@@ -72,6 +75,43 @@ class Turn
      */
     private $id;
 
+    /**
+     * NOTE: This is not a mapped field of entity metadata, just a simple property.
+     *
+     * @Vich\UploadableField(mapping="turn_out", fileNameProperty="turnOutName")
+     *
+     * @var File
+     */
+    private $turnOutFile;
+
+    /**
+     * @ORM\Column(name="file_out", type="string", length=255)
+     *
+     * @var string
+     */
+    private $turnOutName;
+
+    /**
+     * NOTE: This is not a mapped field of entity metadata, just a simple property.
+     *
+     * @Vich\UploadableField(mapping="turn_in", fileNameProperty="turnInName")
+     *
+     * @var File
+     */
+    private $turnInFile;
+
+    /**
+     * @ORM\Column(name="file_in", type="string", length=255)
+     *
+     * @var string
+     */
+    private $turnInName;
+
+    /**
+     * @ORM\Column(name="updated_at", type="datetime")
+     * @var \DateTime
+     */
+    private $updatedAt;
 
     /**
      * Set game
@@ -254,6 +294,120 @@ class Turn
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * If manually uploading a file (i.e. not using Symfony Form) ensure an instance
+     * of 'UploadedFile' is injected into this setter to trigger the  update. If this
+     * bundle's configuration parameter 'inject_on_load' is set to 'true' this setter
+     * must be able to accept an instance of 'File' as the bundle will inject one here
+     * during Doctrine hydration.
+     *
+     * @param File|\Symfony\Component\HttpFoundation\File\UploadedFile $turnOut
+     *
+     * @return Turn
+     */
+    public function setTurnOutFile(File $turnOut = null)
+    {
+        $this->turnOutFile = $turnOut;
+
+        if ($turnOut) {
+            // It is required that at least one field changes if you are using doctrine
+            // otherwise the event listeners won't be called and the file is lost
+            $this->updatedAt = new \DateTime('now');
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return File
+     */
+    public function getTurnOutFile()
+    {
+        return $this->turnOutFile;
+    }
+
+    /**
+     * @param string $turnOutName
+     *
+     * @return Turn
+     */
+    public function setTurnOutName($turnOutName)
+    {
+        $this->turnOutName = $turnOutName;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTurnOutName()
+    {
+        return $this->turnOutName;
+    }
+
+    /**
+     * If manually uploading a file (i.e. not using Symfony Form) ensure an instance
+     * of 'UploadedFile' is injected into this setter to trigger the  update. If this
+     * bundle's configuration parameter 'inject_on_load' is set to 'true' this setter
+     * must be able to accept an instance of 'File' as the bundle will inject one here
+     * during Doctrine hydration.
+     *
+     * @param File|\Symfony\Component\HttpFoundation\File\UploadedFile $turnIn
+     *
+     * @return Turn
+     */
+    public function setTurnInFile(File $turnIn = null)
+    {
+        $this->turnInFile = $turnIn;
+
+        if ($turnIn) {
+            // It is required that at least one field changes if you are using doctrine
+            // otherwise the event listeners won't be called and the file is lost
+            $this->updatedAt = new \DateTime('now');
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return File
+     */
+    public function getTurnInFile()
+    {
+        return $this->turnInFile;
+    }
+
+    /**
+     * @param string $turnInName
+     *
+     * @return Turn
+     */
+    public function setTurnInName($turnInName)
+    {
+        $this->turnInName = $turnInName;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTurnInName()
+    {
+        return $this->turnInName;
+    }
+
+    public function getUpdatedAt()
+    {
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(\DateTime $updatedAt)
+    {
+        $this->updatedAt = $updatedAt;
     }
 }
 
