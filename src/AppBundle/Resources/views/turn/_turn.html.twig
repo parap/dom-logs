@@ -36,5 +36,17 @@
             {% endif %}
         </td>
     </tr>
+    {% if turn.turnOutName %}
+    <tr>
+        <th>.trn file</th>
+        <td><a href="/turns/{{ turn.turnOutName }}">download</a></td>
+    </tr>
+    {% endif %}
+    {% if turn.turnInName %}
+    <tr>
+        <th>.2h file</th>
+        <td><a href="/turns/{{ turn.turnInName }}">download</a></td>
+    </tr>
+    {% endif %}
     </tbody>
 </table>
