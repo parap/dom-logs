@@ -273,7 +273,7 @@ class Turn
 
     public function generateShareLink()
     {
-        $this->shareLink = (string)md5(microtime(true) . date('MYdis'));
+        $this->shareLink = md5(microtime(true) . date('MYdis'));
     }
 
     /**
