@@ -7,6 +7,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Vich\UploaderBundle\Form\Type\VichFileType;
 
 class TurnType extends AbstractType
 {
@@ -31,8 +32,8 @@ class TurnType extends AbstractType
             ->add('idea', null, ['attr' => ['class' => 'tinymce']])
             ->add('plan', null, ['attr' => ['class' => 'tinymce']])
             ->add('action', null, ['attr' => ['class' => 'tinymce']])
-            ->add('turnOutFile', FileType::class, ['label' => '.trn file'])
-            ->add('turnInFile', FileType::class, ['label' => '.2h file'])
+            ->add('turnOutFile', VichFileType::class, ['label' => '.trn file', 'required' => false])
+            ->add('turnInFile', VichFileType::class, ['label' => '.2h file', 'required' => false])
         ;
 
         if (!$new) {
