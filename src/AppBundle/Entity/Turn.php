@@ -309,6 +309,7 @@ class Turn
      */
     public function setTurnOutFile(File $turnOut = null)
     {
+// TODO: move validation out of entity
         if ($turnOut->getMimeType() !== 'application/octet-stream') {
             return $this;
         }
@@ -369,6 +370,7 @@ class Turn
      */
     public function setTurnInFile(File $turnIn = null)
     {
+// TODO: move validation out of entity
         if ($turnIn->getMimeType() !== 'application/octet-stream') {
             return $this;
         }
