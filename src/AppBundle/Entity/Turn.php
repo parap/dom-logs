@@ -309,6 +309,14 @@ class Turn
      */
     public function setTurnOutFile(File $turnOut = null)
     {
+        if ($turnOut->getMimeType() !== 'application/octet-stream') {
+            return $this;
+        }
+
+        if ($turnOut->getSize() > 1024 * 1024 * 10) {
+            return $this;
+        }
+
         $this->turnOutFile = $turnOut;
 
         if ($turnOut) {
@@ -361,6 +369,14 @@ class Turn
      */
     public function setTurnInFile(File $turnIn = null)
     {
+        if ($turnIn->getMimeType() !== 'application/octet-stream') {
+            return $this;
+        }
+
+        if ($turnIn->getSize() > 1024 * 1024 * 10) {
+            return $this;
+        }
+
         $this->turnInFile = $turnIn;
 
         if ($turnIn) {
