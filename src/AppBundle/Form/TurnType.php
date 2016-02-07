@@ -32,8 +32,8 @@ class TurnType extends AbstractType
             ->add('idea', null, ['attr' => ['class' => 'tinymce']])
             ->add('plan', null, ['attr' => ['class' => 'tinymce']])
             ->add('action', null, ['attr' => ['class' => 'tinymce']])
-            ->add('turnOutFile', VichFileType::class, ['label' => '.trn file', 'required' => false])
             ->add('turnInFile', VichFileType::class, ['label' => '.2h file', 'required' => false])
+            ->add('turnOutFile', VichFileType::class, ['label' => '.trn file', 'required' => false])
         ;
 
         if (!$new) {
