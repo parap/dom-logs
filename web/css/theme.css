@@ -10,7 +10,11 @@
 
 #turn label{
     font-weight: bold;
-    margin-left: 250px;
+    /*margin-left: 250px;*/
+}
+
+.vich-file > div{
+    display: inline;
 }
 
 .post-shared label{
