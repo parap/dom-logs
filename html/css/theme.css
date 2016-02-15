@@ -36,6 +36,10 @@
     width: 500px;
 }
 
+#game > div {
+    margin-bottom: 20px;
+}
+
 /************ homepage*/
 
 .myTableStyle thead {
