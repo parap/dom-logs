@@ -34,7 +34,7 @@ class GameType extends AbstractType
         $builder
             ->add('nation', null, ['label' => 'Nation:'])
             ->add('pretender', null, ['attr' => ['class' => 'tinymce long'], 'label' => 'Pretender and scales description:'])
-            ->add('serverLink', null, ['label' => 'Server link (f.i. llamaserver):', 'attr' => ['class' => 'long']])
+            ->add('serverLink', null, ['label' => 'Server (llamaserver?) link:', 'attr' => ['class' => 'long']])
             ->add('thread', null, ['label' => 'Game forum thread link:', 'attr' => ['class' => 'long']])
             ->add('planGeneral', null, ['attr' => ['class' => 'tinymce'], 'label' => 'Plan of general development:'])
             ->add('planResearch', null, ['attr' => ['class' => 'tinymce'], 'label' => 'Plan of research:'])
