@@ -15,7 +15,7 @@ class GameType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('map')
+        $builder->add('map', null, ['label' => 'Map:'])
             ->add(
             'age',
             ChoiceType::class,
@@ -26,13 +26,14 @@ class GameType extends AbstractType
                     'Late'   => 3,
                 ],
                 'choices_as_values' => true,
-                'mapped'            => false
+                'mapped'            => false,
+                'label' => 'Age:'
             ]
         );
 
         $builder
-            ->add('nation')
-            ->add('pretender', null, ['attr' => ['class' => 'tinymce long']])
+            ->add('nation', null, ['label' => 'Nation:'])
+            ->add('pretender', null, ['attr' => ['class' => 'tinymce long'], 'label' => 'Pretender and scales description:'])
             ->add('serverLink', null, ['label' => 'Server link (f.i. llamaserver):', 'attr' => ['class' => 'long']])
             ->add('thread', null, ['label' => 'Game forum thread link:', 'attr' => ['class' => 'long']])
             ->add('planGeneral', null, ['attr' => ['class' => 'tinymce'], 'label' => 'Plan of general development:'])
