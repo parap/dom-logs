@@ -40,7 +40,7 @@ class GameType extends AbstractType
             ->add('thread', null, ['label' => 'Game forum thread link:',
                                    'attr' => ['class' => 'long',
                                               'placeholder' => 'http://www.desura.com/games/dominions-4-thrones-of-ascensions/forum/thread/new-ea-game6/page/2#1076080']])
-            ->add('planGeneral', null, ['attr' => ['class' => 'tinymce', 'placeholder' => 'aaa bbb ccc ddd'], 'label' => 'Plan of general development:'])
+            ->add('planGeneral', null, ['attr' => ['class' => 'tinymce'], 'label' => 'Plan of general development:'])
             ->add('planResearch', null, ['attr' => ['class' => 'tinymce'], 'label' => 'Plan of research:'])
             ->add('winner', null, ['label' => 'Name of winner, if the game is over:', 'attr' => ['placeholder' => 'It is me']]);
     }
