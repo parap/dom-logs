@@ -44,6 +44,10 @@
     margin-left: 10px;
 }
 
+#game > div > select {
+    margin-left: 10px;
+}
+
 /************ homepage*/
 
 .myTableStyle thead {
