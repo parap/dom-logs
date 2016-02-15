@@ -19,7 +19,7 @@ class HomeController extends Controller
 
         return [
             'base_dir' => realpath($this->container->getParameter('kernel.root_dir') . '/..'),
-            'nations'  => $repo->findAll()
+            'nations'  => $repo->findBy([], ['age' => 'ASC', 'name' => 'ASC'])
         ];
     }
 }
