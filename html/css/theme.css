@@ -40,6 +40,10 @@
     margin-bottom: 20px;
 }
 
+#game > div > input {
+    margin-left: 10px;
+}
+
 /************ homepage*/
 
 .myTableStyle thead {
