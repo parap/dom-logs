@@ -15,29 +15,29 @@ class GameType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder
-            ->add('pretender', null, ['attr' => ['class' => 'tinymce']])
-            ->add('planGeneral', null, ['attr' => ['class' => 'tinymce']])
-            ->add('map')
-            ->add('planResearch', null, ['attr' => ['class' => 'tinymce']])
-            ->add('winner')
-            ->add('serverLink')
-            ->add('thread');
-
-        $builder->add(
+        $builder->add('map')
+            ->add(
             'age',
             ChoiceType::class,
             [
-            'choices' => [
-                'Early'  => 1,
-                'Middle' => 2,
-                'Late'   => 3,
-            ],
-            'choices_as_values' => true,
-            'mapped'            => false
+                'choices' => [
+                    'Early'  => 1,
+                    'Middle' => 2,
+                    'Late'   => 3,
+                ],
+                'choices_as_values' => true,
+                'mapped'            => false
             ]
-        )
-            ->add('nation');
+        );
+
+        $builder
+            ->add('nation')
+            ->add('pretender', null, ['attr' => ['class' => 'tinymce']])
+            ->add('serverLink', null, ['label' => 'Server link (f.i. llamaserver)'])
+            ->add('thread', null, ['label' => 'Game forum thread'])
+            ->add('planGeneral', null, ['attr' => ['class' => 'tinymce']])
+            ->add('planResearch', null, ['attr' => ['class' => 'tinymce']])
+            ->add('winner', null, ['label' => 'If someone won the game, fill the name']);
     }
 
     /**
