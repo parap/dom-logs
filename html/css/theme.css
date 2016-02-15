@@ -32,6 +32,10 @@
     display: none;
 }
 
+.long {
+    width: 500px;
+}
+
 /************ homepage*/
 
 .myTableStyle thead {
