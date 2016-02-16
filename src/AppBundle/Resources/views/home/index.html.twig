@@ -2,30 +2,18 @@
 
 {% block body %}
 <div id="wrapper">
-    <div id="container">
+    <div id="container" style="padding-top: 150px;">
         {% if app.user %}
         {% include 'AppBundle:home:_nations.html.twig' %}
         {% else %}
 
-        <h1 style="text-align: center">Logging, Planning, Private Sharing and Saving Dominions 4 game turns.</h1>
+        <h1>Logging, Planning, Private Sharing and Saving Dominions 4 game turns.</h1>
 
-        <div style="display:block; text-align: center;">
-            <strong>Available nations list:</strong>
-        </div>
+        <h3><span class="underline">Log</span> games and turns.</h3>
+        <h3><span class="underline">Plan</span> the game ahead.</h3>
+        <h3><span class="underline">Share</span> turns for friends for advices.</h3>
+        <h3><span class="underline">Upload</span> game turns to ease game analysis and review.</h3>
 
-        <div style="display:block; text-align: center;">
-            {% set old = 'old' %}
-            {% for nation in nations %}
-
-            {% if nation.age != old %}
-            <br/><br/>{{ nation.age }} Age:<br/><br/>
-            {% set old = nation.age %}
-            {% endif %}
-
-            {{ nation.name }}
-
-            {% endfor %}
-        </div>
         {% endif %}
     </div>
 </div>
