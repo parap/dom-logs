@@ -40,7 +40,19 @@ Build temple at #15 to fix dominion.<br/>
 Attack #77 of Caelum.">(sample)</label></div>
 </div><div class="tinymce-short">{{ form_widget(form.action) }}</div>
 
-{{ form_widget(form) }}
+<div>{{ form_label(form.shareLink) }}
+<label class="tooltip blue" title="Share link for this turn to friend.">(help)</label></div>
+</div><div class="tinymce-short">{{ form_widget(form.shareLink) }}</div>
+
+<div>{{ form_label(form.turnInFile) }}
+<label class="tooltip blue" title="Upload .2h file.">(help)</label></div>
+</div><div class="tinymce-short">{{ form_widget(form.turnInFile) }}</div>
+
+<div>{{ form_label(form.turnOutFile) }}
+<label class="tooltip blue" title="Upload .trn file.">(help)</label></div>
+</div><div class="tinymce-short">{{ form_widget(form.turnOutFile) }}</div>
+
+{#{{ form_widget(form) }}#}
 <input type="submit" value="Create" />
 {{ form_end(form) }}
 
