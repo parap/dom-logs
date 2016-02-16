@@ -88,3 +88,11 @@ form > .separate-top {
 .center, table.center{
     text-align: center;
 }
+
+#container h1, #container h3{
+    text-align: center;
+}
+
+.underline{
+    text-decoration: underline;
+}
