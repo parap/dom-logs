@@ -24,7 +24,10 @@
 
 .post-shared input{
     width: 600px;
+}
 
+.tinymce-short{
+    width: 60%;
 }
 
 /************ #new game form*/
