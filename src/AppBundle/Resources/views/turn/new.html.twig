@@ -1,17 +1,48 @@
 {% extends 'AppBundle::base.html.twig' %}
 
 {% block body %}
+
+<link rel="stylesheet" href="{{app.request.getSchemeAndHttpHost()}}/css/tooltipster.css">
+<link rel="stylesheet" href="{{app.request.getSchemeAndHttpHost()}}/css/tooltipster-light.css">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="{{app.request.getSchemeAndHttpHost()}}/js/jquery.tooltipster.min.js"></script>
+
     <h1>Turn creation of {{ turn.game }} game</h1>
 
     {{ form_start(form) }}
 <div>{{ form_label(form.number) }}</div><div>{{ form_widget(form.number) }}</div>
-<div>{{ form_label(form.result) }}</div><div class="tinymce-short">{{ form_widget(form.result) }}</div>
-<div>{{ form_label(form.idea) }}</div><div class="tinymce-short">{{ form_widget(form.idea) }}</div>
-<div>{{ form_label(form.plan) }}</div><div class="tinymce-short">{{ form_widget(form.plan) }}</div>
-<div>{{ form_label(form.action) }}</div><div class="tinymce-short">{{ form_widget(form.action) }}</div>
-        {{ form_widget(form) }}
-        <input type="submit" value="Create" />
-    {{ form_end(form) }}
+
+<div>{{ form_label(form.result) }}
+<label class="tooltip blue" title="Conquered provinces #10, #20 and #33<br/>
+Won battle vs Ulm at #33: lost 2 mages and 10 Centaur Warriors while enemy lost 50 warriors and 20 archers.<br/>
+Traded <b>Earth Hammer</b> for 17 death gems.<br/>
+Found <b>D2F3<b/> sites.<br/>
+Got 2k gold and <b>Lightless Lantern</b> from random events.">(sample)</label></div>
+<div class="tinymce-short">{{ form_widget(form.result) }}</div>
+
+<div>{{ form_label(form.idea) }}
+<label class="tooltip blue" title="We should expand Under Water now with <b>Rings of Underwater Breathing.</b><br/>
+Mictlan is no longer threat, it is time for peaceful propositions now.<br/>
+Let's stab Marverni by sneaking Revellers now.">(sample)</label></div>
+</div><div class="tinymce-short">{{ form_widget(form.idea) }}</div>
+
+<div>{{ form_label(form.plan) }}
+<label class="tooltip blue" title="This turn forge 4 <b>Rings of Underwater Breathing.</b><br/>
+Next turn Centaur Thugs wear rings and attack #2, #4 and #6 provinces UW. Revellers under command of dryads come to #11 border province<br/>
+Turn 33 revellers attack #12 and #13 provinces to win initiative.">(sample)</label></div>
+</div><div class="tinymce-short">{{ form_widget(form.plan) }}</div>
+
+<div>{{ form_label(form.action) }}
+<label class="tooltip blue" title="Forge 4 <b>Rings of Underwater Breathing.</b><br/>
+Propose to Mictlan peace treaty: they pay 1k gold in exchange for NAP-10<br/>
+Forge two frost brands and two vine shields. <br/>
+Build temple at #15 to fix dominion.<br/>
+Attack #77 of Caelum.">(sample)</label></div>
+</div><div class="tinymce-short">{{ form_widget(form.action) }}</div>
+
+{{ form_widget(form) }}
+<input type="submit" value="Create" />
+{{ form_end(form) }}
 
     <ul>
         <li>
