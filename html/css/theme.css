@@ -8,6 +8,14 @@
     width: 600px;
 }
 
+form > div{
+    margin-bottom: 5px;
+}
+
+form > .separate-top {
+    margin-top: 25px;
+}
+
 #turn label{
     font-weight: bold;
     /*margin-left: 250px;*/
