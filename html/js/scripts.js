@@ -15,6 +15,12 @@ $(function () {
         var age = $('#game_age>option:selected').text();
         disableOtherThan(age);
     });
+
+    if ($.fn.tooltipster) {
+        $('.tooltip').tooltipster({
+            contentAsHTML: true
+        });
+    }
 });
 
 
