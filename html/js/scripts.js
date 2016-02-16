@@ -18,7 +18,8 @@ $(function () {
 
     if ($.fn.tooltipster) {
         $('.tooltip').tooltipster({
-            contentAsHTML: true
+            contentAsHTML: true,
+            theme: 'tooltipster-light'
         });
     }
 });
