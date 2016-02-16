@@ -11,7 +11,7 @@
 <script src="{{app.request.getSchemeAndHttpHost()}}/js/jquery.tooltipster.min.js"></script>
 
 <h1 title="tooltip" class="tooltip">New game</h1>
-{{ form_start(form) }}
+{{ form_start(form, {'attr': {'id': 'game'}}) }}
 <div>{{ form_label(form.map) }}{{ form_widget(form.map) }}</div>
 <div>{{ form_label(form.age) }}{{ form_widget(form.age) }}</div>
 <div>{{ form_label(form.nation) }}{{ form_widget(form.nation) }}</div>
@@ -39,9 +39,9 @@
 
 
     {{ form_widget(form.planResearch) }}</div>
-{{ form_widget(form) }}
+{#{{ form_widget(form) }}#}
 <input type="submit" value="Create"/>
-{{ form_end(form) }}
+<div>{{ form_end(form) }}</div>
 
 <ul>
     <li>
