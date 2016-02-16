@@ -33,7 +33,7 @@ class GameType extends AbstractType
 
         $builder
             ->add('nation', null, ['label' => 'Nation:'])
-            ->add('pretender', null, ['attr' => ['class' => 'tinymce long', 'placeholder' => 'Gorgon 6N6E'], 'label' => 'Pretender and scales description:'])
+            ->add('pretender', null, ['attr' => ['class' => 'tinymce long', 'placeholder' => 'Gorgon 6N6E O3S3C1D3L3M3'], 'label' => 'Pretender and scales description:'])
             ->add('serverLink', null, ['label' => 'Server (llamaserver?) link:',
                                        'attr' => ['class' => 'long',
                                                   'placeholder' => 'http://www.llamaserver.net/gameinfo.cgi?game=Sauron']])
@@ -42,7 +42,7 @@ class GameType extends AbstractType
                                               'placeholder' => 'http://www.desura.com/games/dominions-4-thrones-of-ascensions/forum/thread/new-ea-game6/page/2#1076080']])
             ->add('planGeneral', null, ['attr' => ['class' => 'tinymce'], 'label' => 'Plan of general development:'])
             ->add('planResearch', null, ['attr' => ['class' => 'tinymce'], 'label' => 'Plan of research:'])
-            ->add('winner', null, ['label' => 'Name of winner, if the game is over:', 'attr' => ['placeholder' => 'It is me']]);
+            ->add('winner', null, ['label' => 'Name of winner. Leave empty if game is on:', 'attr' => ['placeholder' => 'It is me']]);
     }
 
     /**
