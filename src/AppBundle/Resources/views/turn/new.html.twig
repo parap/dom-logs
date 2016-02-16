@@ -4,6 +4,11 @@
     <h1>Turn creation of {{ turn.game }} game</h1>
 
     {{ form_start(form) }}
+<div>{{ form_label(form.number) }}</div><div>{{ form_widget(form.number) }}</div>
+<div>{{ form_label(form.result) }}</div><div class="tinymce-short">{{ form_widget(form.result) }}</div>
+<div>{{ form_label(form.idea) }}</div><div class="tinymce-short">{{ form_widget(form.idea) }}</div>
+<div>{{ form_label(form.plan) }}</div><div class="tinymce-short">{{ form_widget(form.plan) }}</div>
+<div>{{ form_label(form.action) }}</div><div class="tinymce-short">{{ form_widget(form.action) }}</div>
         {{ form_widget(form) }}
         <input type="submit" value="Create" />
     {{ form_end(form) }}
