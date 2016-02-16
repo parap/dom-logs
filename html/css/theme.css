@@ -38,6 +38,12 @@ form > .separate-top {
     width: 60%;
 }
 
+/* show turn form */
+
+.ul-separated li{
+    margin-top: 20px;
+}
+
 /************ #new game form*/
 .nage_Early, .nage_Middle, .nage_Late {
     display: none;
