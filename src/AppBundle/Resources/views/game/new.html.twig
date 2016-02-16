@@ -12,12 +12,13 @@
 
 <h1 title="tooltip" class="tooltip">New game</h1>
 {{ form_start(form, {'attr': {'id': 'game'}}) }}
-<div>{{ form_label(form.map) }}{{ form_widget(form.map) }}</div>
-<div>{{ form_label(form.age) }}{{ form_widget(form.age) }}</div>
-<div>{{ form_label(form.nation) }}{{ form_widget(form.nation) }}</div>
-<div>{{ form_label(form.pretender) }}{{ form_widget(form.pretender) }}</div>
-<div>{{ form_label(form.thread) }}{{ form_widget(form.thread) }}</div>
-<div>{{ form_label(form.serverLink) }}{{ form_widget(form.serverLink) }}</div>
+<div>{{ form_label(form.map) }}</div><div>{{ form_widget(form.map) }}</div>
+<div>{{ form_label(form.age) }}</div><div>{{ form_widget(form.age) }}</div>
+<div>{{ form_label(form.nation) }}</div><div>{{ form_widget(form.nation) }}</div>
+<div>{{ form_label(form.pretender) }}</div><div>{{ form_widget(form.pretender) }}</div>
+<div>{{ form_label(form.thread) }}</div><div>{{ form_widget(form.thread) }}</div>
+<div>{{ form_label(form.serverLink) }}</div><div>{{ form_widget(form.serverLink) }}</div>
+<div>{{ form_label(form.winner) }}</div><div>{{ form_widget(form.winner) }}</div>
 
 <div>{{ form_label(form.planGeneral) }}
     <label class="tooltip"  title="1. Expand by Centaur Warriors.<br/>
