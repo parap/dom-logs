@@ -3,18 +3,17 @@
 {% block body %}
 <div id="wrapper">
     <div id="container">
-        <div id="welcome">
-            <h1 style="text-align: center"><span>Home page</h1>
-        </div>
-
         {% if app.user %}
         {% include 'AppBundle:home:_nations.html.twig' %}
         {% else %}
-        <div style="display:block; margin-top: 0px; text-align: center;">
-            <strong>Nations list:</strong>
+
+        <h1 style="text-align: center">Logging, Planning, Private Sharing and Saving Dominions 4 game turns.</h1>
+
+        <div style="display:block; text-align: center;">
+            <strong>Available nations list:</strong>
         </div>
 
-        <div style="display:block; margin-top: 0px; text-align: center;">
+        <div style="display:block; text-align: center;">
             {% set old = 'old' %}
             {% for nation in nations %}
 
