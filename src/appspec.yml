@@ -40,21 +40,28 @@ files:
 #   then remove the
 #   "permissions" section altogether. A blank or incomplete "permissions"
 #   section may cause associated deployments to fail.
-permissions:
-  - object:
-    pattern:
-    except:
-    owner:
-    group:
-    mode:
-    acls:
-      -
-    context:
-      user:
-      type:
-      range:
-    type:
-      -
+#permissions:
+#  - object:
+#    pattern:
+#    except:
+#    owner:
+#    group:
+#    mode:
+#    acls:
+#      -
+#    context:
+#      user:
+#      type:
+#      range:
+#    type:
+#      -
+
+#  - object: *
+#  group: git
+#  mode: 564
+#  type:
+#    - directory
+
 # If you are not running any commands on the instance, then remove
 #   the "hooks" section altogether. A blank or incomplete "hooks" section
 #   may cause associated deployments to fail.
