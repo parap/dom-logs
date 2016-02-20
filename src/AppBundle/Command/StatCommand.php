@@ -27,10 +27,12 @@ class StatCommand extends ContainerAwareCommand
         $users = count($userR->findAll());
         $turnR = $doc->getRepository('AppBundle:Turn');
         $turns = count($turnR->findAll());
+        $files = $turnR->countInFiles() + $turnR->countOutFiles();
 
         $output->writeln('Total games: '.$games);
         $output->writeln('Total games going: '.$gamesOn);
         $output->writeln('Total users: '.$users);
         $output->writeln('Total turns: '.$turns);
+        $output->writeln('Total files: '.$files);
     }
 }
