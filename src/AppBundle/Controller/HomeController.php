@@ -22,4 +22,17 @@ class HomeController extends Controller
             'nations'  => $repo->findBy([], ['age' => 'ASC', 'name' => 'ASC'])
         ];
     }
+    /**
+     * @Route("/contacts", name="contacts")
+     * @Template("AppBundle:home:contacts.html.twig")
+     */
+    public function contactsAction(Request $request)
+    {
+        $repo = $this->container->get('doctrine')->getRepository('AppBundle:Nation');
+
+        return [
+            'base_dir' => realpath($this->container->getParameter('kernel.root_dir') . '/..'),
+            'nations'  => $repo->findBy([], ['age' => 'ASC', 'name' => 'ASC'])
+        ];
+    }
 }
