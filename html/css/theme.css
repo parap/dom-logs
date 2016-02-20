@@ -100,3 +100,11 @@ form > .separate-top {
 .underline{
     text-decoration: underline;
 }
+
+/*Contacts page */
+
+#contacts{
+    text-align: center;
+    margin-top: 200px;
+    font-size: 20px;
+}
