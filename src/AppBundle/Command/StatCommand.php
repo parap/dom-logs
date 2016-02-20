@@ -2,45 +2,35 @@
 
 namespace AppBundle\Command;
 
-use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 
-class StatCommand extends Command
+class StatCommand extends ContainerAwareCommand
 {
     protected function configure()
     {
         $this
             ->setName('app:stat')
-            ->setDescription('Greet someone')
-            ->addArgument(
-            'name',
-            InputArgument::OPTIONAL,
-            'Who do you want to greet?'
-        )
-            ->addOption(
-            'yell',
-            null,
-            InputOption::VALUE_NONE,
-            'If set, the task will yell in uppercase letters'
-        );
+            ->setDescription('Fetch statistic for commands');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $name = $input->getArgument('name');
-        if ($name) {
-            $text = 'Hello ' . $name;
-        } else {
-            $text = 'Hello';
-        }
+        $doc = $this->getContainer()->get('doctrine');
 
-        if ($input->getOption('yell')) {
-            $text = strtoupper($text);
-        }
+        $gamesR = $doc->getRepository('AppBundle:Game');
+        $games = count($gamesR->findAll());
+        $gamesOn = $gamesR->countAllGoing();
 
-        $output->writeln($text);
+        $userR = $doc->getRepository('AppBundle:User');
+        $users = count($userR->findAll());
+        $turnR = $doc->getRepository('AppBundle:Turn');
+        $turns = count($turnR->findAll());
+
+        $output->writeln('Total games: '.$games);
+        $output->writeln('Total games going: '.$gamesOn);
+        $output->writeln('Total users: '.$users);
+        $output->writeln('Total turns: '.$turns);
     }
 }
