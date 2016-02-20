@@ -22,6 +22,17 @@ $(function () {
             theme: 'tooltipster-light'
         });
     }
+
+    if ($('#show-turn').length > 0) {
+
+        $('a').each(function(e){
+            var link = $(this);
+            if ('download' == link.html()) {
+                var parts= link.attr('href').split('_');
+                link.attr('download',parts[1] + '_' + parts[2]);
+            }
+        });
+    }
 });
 
 
