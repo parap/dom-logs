@@ -35,4 +35,13 @@ class HomeController extends Controller
             'nations'  => $repo->findBy([], ['age' => 'ASC', 'name' => 'ASC'])
         ];
     }
+
+    /**
+     * @Route("/pretenders", name="pretenders")
+     * @Template("AppBundle:home:pretender.html.twig")
+     */
+    public function pretenderAction(Request $request)
+    {
+        return [];
+    }
 }
