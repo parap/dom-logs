@@ -108,3 +108,9 @@ form > .separate-top {
     margin-top: 200px;
     font-size: 20px;
 }
+
+/* Pretenders page */
+
+.hide {
+    display: none;
+}
