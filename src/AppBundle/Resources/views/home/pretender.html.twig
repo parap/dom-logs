@@ -5,17 +5,7 @@
 <link rel="stylesheet" href="{{app.request.getSchemeAndHttpHost()}}/css/jquery.auto-complete.css">
 <script src="{{app.request.getSchemeAndHttpHost()}}/js/jquery.auto-complete.min.js"></script>
 
-<div id="wrapper" style="text-align: center; margin-top: 30px; border: 1px solid black">
-    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <!-- test -->
-    <ins class="adsbygoogle"
-         style="display:inline-block;width:320px;height:100px"
-         data-ad-client="ca-pub-1814072742039137"
-         data-ad-slot="7495849203"></ins>
-    <script>
-        (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-</div>
+{% include 'AppBundle:home:ads.html.twig' %}
 
 <br/>
 <br/>
