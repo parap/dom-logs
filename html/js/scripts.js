@@ -37,16 +37,50 @@ $(function () {
     }
 
     if ($('#titles').length > 0) {
+
+        var choices = [];
+        var scales = [];
+        var text = $('#titles').text();
+        var strings = text.split('\n');
+
+        for (var i=0; i<strings.length; i++){
+            var current = strings[i];
+            var parts = current.split('"');
+            choices[i] = parts[1];
+
+            if( parts.length == 3){
+                var partsSecond = parts[2].split(':');
+                scales[choices[i]] = partsSecond[1];
+            } else {
+                scales[choices[i]] = '';
+            }
+        }
+
         $('#title').autoComplete({
             minChars: 2,
             source: function(term, suggest){
                 term = term.toLowerCase();
-                var choices = ['ActionScript', 'AppleScript', 'Asp'];
+
                 var matches = [];
-                for (i=0; i<choices.length; i++)
-                    if (~choices[i].toLowerCase().indexOf(term)) matches.push(choices[i]);
+                for (i=1; i<choices.length; i++)
+                    if (choices[i] != null && ~choices[i].toLowerCase().indexOf(term)) matches.push(choices[i]);
                 suggest(matches);
+            },
+            onSelect: function(e, term, item){
+                var result = $('#title-result').text();
+                if (result == '') {
+                    result = result + scales[term]
+                } else {
+                    result = result + ', ' + scales[term];
+                }
+
+                $('#title-result').text(result);
+                $('#title').val('');
             }
+        });
+
+        $("#title-clear").on('click', function(){
+            $('#title-result').text('');
         });
     }
 });
