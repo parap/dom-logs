@@ -77,15 +77,20 @@ $(function () {
                     resultInitial = resultInitial + ', ' + term;
                 }
 
+                var dominion = resultInitial.split(',').length * 2 - 2;
+
                 $('#title-initial').text(resultInitial);
                 $('#title-result').text(result);
+                $('#title-dom').text(dominion);
                 $('#title').val('');
+
             }
         });
 
-        $("#title-clear").on('click', function(){
+        $("#title-clear").on('click', function() {
             $('#title-result').text('');
             $('#title-initial').text('');
+            $('#title-dom').text('');
         });
     }
 });
