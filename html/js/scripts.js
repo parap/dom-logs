@@ -68,12 +68,16 @@ $(function () {
             },
             onSelect: function(e, term, item){
                 var result = $('#title-result').text();
+                var resultInitial = $('#title-initial').text();
                 if (result == '') {
                     result = result + scales[term]
+                    resultInitial = resultInitial + term;
                 } else {
                     result = result + ', ' + scales[term];
+                    resultInitial = resultInitial + ', ' + term;
                 }
 
+                $('#title-initial').text(resultInitial);
                 $('#title-result').text(result);
                 $('#title').val('');
             }
@@ -81,6 +85,7 @@ $(function () {
 
         $("#title-clear").on('click', function(){
             $('#title-result').text('');
+            $('#title-initial').text('');
         });
     }
 });
