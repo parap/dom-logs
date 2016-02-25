@@ -2,6 +2,9 @@
 
 {% block body %}
 
+<link rel="stylesheet" href="{{app.request.getSchemeAndHttpHost()}}/css/jquery.auto-complete.css">
+<script src="{{app.request.getSchemeAndHttpHost()}}/js/jquery.auto-complete.min.js"></script>
+
 <div id="wrapper" style="text-align: center; margin-top: 30px; border: 1px solid black">
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <!-- test -->
@@ -17,19 +20,17 @@
 <br/>
 <br/>
 <br/>
-Enter Pretender Title to descript:
-<input type="text" class="long" />
+Enter Pretender Title to decrypt:
+<input type="text" class="long" id="title" />
 <br/>
+<b>Title:</b> <div style="display: inline;"><span id="title-initial"></span><br/></div>
+<b>Result:</b> <div style="display: inline;"><span id="title-result"></span><br/></div>
+<b>Min dominion:</b> <div style="display: inline;"><span id="title-dom"></span><br/></div>
+<button id="title-clear">Clear</button>
 <br/>
-<table style="border: 1px solid black;text-align: center">
-    <tr>
-        <td>Content</td>
-        <td>Content</td>
-    </tr>
-    <tr>
-        <td>Content</td>
-        <td>Content</td>
-    </tr>
-</table>
+
+<div class="hide" id="titles">
+{% include 'AppBundle:home:_codes.html.twig' %}
+</div>
 
 {% endblock %}
