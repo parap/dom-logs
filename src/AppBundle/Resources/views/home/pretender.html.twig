@@ -2,6 +2,9 @@
 
 {% block body %}
 
+<link rel="stylesheet" href="{{app.request.getSchemeAndHttpHost()}}/css/jquery.auto-complete.css">
+<script src="{{app.request.getSchemeAndHttpHost()}}/js/jquery.auto-complete.min.js"></script>
+
 <div id="wrapper" style="text-align: center; margin-top: 30px; border: 1px solid black">
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <!-- test -->
@@ -13,6 +16,24 @@
         (adsbygoogle = window.adsbygoogle || []).push({});
     </script>
 </div>
+
+<br/>
+<br/>
+<br/>
+Enter Pretender Title to descript:
+<input type="text" class="long" id="title" />
+<br/>
+<br/>
+<table style="border: 1px solid black;text-align: center">
+    <tr>
+        <td>Content</td>
+        <td>Content</td>
+    </tr>
+    <tr>
+        <td>Content</td>
+        <td>Content</td>
+    </tr>
+</table>
 
 <div class="hide" id="titles">
 1 "# of Every Flame" : Fire >= 5; Unknown: 2
@@ -683,23 +704,5 @@
 666 "the Spirit of the Fear of " : Disciple: 1; Astral >= 3; Death >= 3
 667 "the Judge of " : Disciple: 1; Fire >= 3
 </div>
-
-<br/>
-<br/>
-<br/>
-Enter Pretender Title to descript:
-<input type="text" class="long" />
-<br/>
-<br/>
-<table style="border: 1px solid black;text-align: center">
-    <tr>
-        <td>Content</td>
-        <td>Content</td>
-    </tr>
-    <tr>
-        <td>Content</td>
-        <td>Content</td>
-    </tr>
-</table>
 
 {% endblock %}
