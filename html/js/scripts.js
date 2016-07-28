@@ -12,6 +12,8 @@ function disableOtherThan(age) {
 // delay after document is ready
 $(function () {
 //    Manage ages and nations on new game and edit game pages
+    disableOtherThan('Early');
+
     $('#game_age').on('change', function (e) {
         var age = $('#game_age>option:selected').text();
         disableOtherThan(age);
